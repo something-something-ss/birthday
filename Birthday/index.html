@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: start center;
+      overflow: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+      background-color: #efc4d4;
+      background-image:
+        radial-gradient(circle at 28px 28px, #e89fba 0 3px, transparent 3.5px),
+        radial-gradient(ellipse at 28px 17px, #fff1f6 0 6px, transparent 6.5px),
+        radial-gradient(ellipse at 28px 39px, #fff1f6 0 6px, transparent 6.5px),
+        radial-gradient(ellipse at 17px 28px, #fff1f6 0 6px, transparent 6.5px),
+        radial-gradient(ellipse at 39px 28px, #fff1f6 0 6px, transparent 6.5px),
+        radial-gradient(circle at 88px 88px, #d990b4 0 3px, transparent 3.5px),
+        radial-gradient(ellipse at 88px 77px, #f5d9e8 0 6px, transparent 6.5px),
+        radial-gradient(ellipse at 88px 99px, #f5d9e8 0 6px, transparent 6.5px),
+        radial-gradient(ellipse at 77px 88px, #f5d9e8 0 6px, transparent 6.5px),
+        radial-gradient(ellipse at 99px 88px, #f5d9e8 0 6px, transparent 6.5px);
+      background-size: 120px 120px;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -3%;
+      z-index: -2;
+      background: url("background.jpg") center 62% / 40% auto no-repeat;
+      animation: gentle-zoom 14s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(to bottom, rgb(255 220 235 / 28%), transparent 42%),
+        radial-gradient(circle at center, transparent 40%, rgb(151 64 95 / 16%));
+    }
+
+    main {
+      margin-top: clamp(28px, 8vh, 80px);
+      padding: 20px 34px 22px;
+      text-align: center;
+      background: rgb(255 245 249 / 82%);
+      border: 2px solid rgb(255 255 255 / 82%);
+      border-radius: 28px;
+      box-shadow: 0 12px 35px rgb(104 59 75 / 22%);
+      backdrop-filter: blur(7px);
+      animation: appear 1s ease-out both, float 4s ease-in-out 1s infinite;
+    }
+
+    h1 {
+      margin: 0;
+      color: #c6537c;
+      font-size: clamp(2.5rem, 8vw, 5.2rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      text-shadow: 0 2px #fff;
+    }
+
+    p {
+      margin: 10px 0 0;
+      color: #965169;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      font-size: clamp(0.95rem, 2.8vw, 1.15rem);
+    }
+
+    .heart {
+      display: inline-block;
+      margin-left: 5px;
+      color: #e26391;
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(-14px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    @keyframes gentle-zoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.04); }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      45% { transform: scale(1.18); }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        width: calc(100% - 30px);
+        padding-inline: 16px;
+      }
+
+      body::before {
+        background-position: center 65%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Happy Birthday!</h1>
+    <p>To the girl who has my heart and soul, I wish you the happiest of days till we can sit in a place like this leaving the world behind.<span class="heart" aria-hidden="true">&#9829;</span></p>
+  </main>
+</body>
+</html>
